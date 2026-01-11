@@ -109,6 +109,91 @@ Browse the [docs/](docs/) folder to dive into specific topics. Each guide includ
 - **Rationale** - Why this is best practice
 - **Common Mistakes** - What to avoid
 
+### Run the Sample App
+
+Our sample app demonstrates all best practices in a real-world context:
+
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/flutter-best-practices.git
+cd flutter-best-practices
+
+# Navigate to sample app
+cd sample-app
+
+# Get dependencies
+flutter pub get
+
+# Run the app
+flutter run
+```
+
+### Study the Examples
+
+Check out the [examples/](examples/) folder for focused demonstrations:
+
+```bash
+# Compare anti-patterns vs. best practices
+examples/
+├── anti-patterns/          # ❌ Common mistakes (clearly marked)
+└── best-practices/         # ✅ Recommended approaches
+    ├── architecture_example/
+    ├── state_management_example/
+    ├── performance_example/
+    └── testing_example/
+```
+
+---
+
+## 💡 Featured Examples
+
+### Before vs After: Widget Rebuild Optimization
+
+**❌ Anti-Pattern: Unnecessary Rebuilds**
+```dart
+class UserProfile extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        ExpensiveWidget(),  // Rebuilds on every parent rebuild
+        UserInfo(),
+      ],
+    );
+  }
+}
+```
+
+**✅ Best Practice: Const Constructor**
+```dart
+class UserProfile extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        const ExpensiveWidget(),  // Won't rebuild unnecessarily
+        const UserInfo(),
+      ],
+    );
+  }
+}
+
+class ExpensiveWidget extends StatelessWidget {
+  const ExpensiveWidget({super.key});  // Const constructor
+  
+  @override
+  Widget build(BuildContext context) {
+    return /* ... */;
+  }
+}
+```
+
+**📊 Performance Impact**: 60% reduction in widget rebuilds
+
+[See more examples →](examples/best-practices/performance_example/)
+
+---
+
 ## 🗺️ Roadmap
 
 ### ✅ Phase 1: Foundation (Current)
@@ -135,6 +220,30 @@ Browse the [docs/](docs/) folder to dive into specific topics. Each guide includ
 
 ---
 
+## 🤝 Contributing
+
+We welcome contributions from the community! Whether you're fixing a typo, adding a new best practice, or improving an example, your help makes this resource better for everyone.
+
+### How to Contribute
+
+1. **Read the [Contributing Guidelines](CONTRIBUTING.md)**
+2. **Check [existing issues](https://github.com/yourusername/flutter-best-practices/issues)** or create a new one
+3. **Fork the repository** and create a feature branch
+4. **Submit a Pull Request** with a clear description
+
+### Contribution Ideas
+
+- 📝 Add missing documentation for a topic
+- 💻 Create code examples for existing guides
+- 🐛 Fix bugs in sample applications
+- 🎨 Improve UI/UX of examples
+- 🌍 Translate documentation
+- ⚡ Add performance benchmarks
+
+[Start contributing →](CONTRIBUTING.md)
+
+---
+
 ## 📖 Documentation Standards
 
 Every best practice guide follows this structure:
@@ -149,6 +258,56 @@ Every best practice guide follows this structure:
 8. **Performance Implications** - Impact on app performance
 9. **Testing Approach** - How to test this pattern
 10. **Further Reading** - Additional resources
+
+---
+
+## 🌟 Featured Resources
+
+### Sample Applications
+
+- **[Main Sample App](sample-app/)** - Full-featured app demonstrating all best practices
+- **[Architecture Example](examples/best-practices/architecture_example/)** - Clean architecture implementation
+- **[State Management Example](examples/best-practices/state_management_example/)** - Riverpod patterns
+
+### Templates
+
+- **[Feature Template](templates/feature-template/)** - Scaffold new features quickly
+- **[Analysis Options](templates/analysis_options.yaml)** - Recommended lint rules
+- **[GitHub Workflows](templates/github-workflows/)** - CI/CD templates
+
+### Checklists
+
+- **[Pre-Commit Checklist](checklists/pre-commit-checklist.md)** - Before committing code
+- **[Code Review Checklist](checklists/code-review-checklist.md)** - For reviewers
+- **[Pre-Release Checklist](checklists/pre-release-checklist.md)** - Before production deployment
+
+---
+
+## 🏆 Contributors
+
+Thanks to all the amazing contributors who have helped build this resource:
+
+<!-- ALL-CONTRIBUTORS-LIST:START -->
+<!-- This section is auto-generated, don't edit manually -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+[Become a contributor →](CONTRIBUTING.md)
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 💬 Community & Support
+
+- 🐛 **Found a bug?** [Open an issue](https://github.com/yourusername/flutter-best-practices/issues/new?template=bug_report.md)
+- 💡 **Have a suggestion?** [Start a discussion](https://github.com/yourusername/flutter-best-practices/discussions)
+- ❓ **Need help?** [Ask a question](https://github.com/yourusername/flutter-best-practices/discussions/categories/q-a)
+- 🐦 **Follow updates** on [Twitter](https://twitter.com/yourusername)
+- 💬 **Join the conversation** on [Discord](https://discord.gg/yourserver)
 
 ---
 
