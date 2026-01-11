@@ -1,0 +1,53 @@
+# ============================================
+# EDTECH - analysis_options_edtech.yaml
+# ============================================
+# Accessibility, performance, and user experience focus
+# Use this for: Learning platforms, educational apps, student portals
+
+include: analysis_options.yaml
+
+analyzer:
+  errors:
+    # Accessibility is critical
+    use_key_in_widget_constructors: error
+    
+    # Performance for low-end devices
+    avoid_unnecessary_containers: error
+    
+    # Moderate documentation
+    public_member_api_docs: warning
+
+linter:
+  rules:
+    # === EDTECH-SPECIFIC RULES ===
+    
+    # Accessibility (WCAG Compliance)
+    - use_key_in_widget_constructors  # For screen readers
+    # Note: Custom lint for semantic labels would go here
+    
+    # Performance (Support older devices)
+    - prefer_const_constructors
+    - prefer_const_constructors_in_immutables
+    - prefer_const_declarations
+    - prefer_const_literals_to_create_immutables
+    - avoid_unnecessary_containers
+    - use_colored_box
+    - use_decorated_box
+    
+    # Offline Support
+    - cancel_subscriptions
+    - close_sinks
+    - unawaited_futures
+    
+    # User Experience
+    - prefer_foreach  # Simpler iteration
+    - prefer_if_null_operators  # Cleaner null handling
+    - avoid_bool_literals_in_conditional_expressions
+    
+    # Code Readability (Team collaboration)
+    - prefer_single_quotes
+    - require_trailing_commas
+    - sort_child_properties_last
+    
+    # Documentation (Moderate requirement)
+    - slash_for_doc_comments

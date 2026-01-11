@@ -194,32 +194,6 @@ class ExpensiveWidget extends StatelessWidget {
 
 ---
 
-## 🗺️ Roadmap
-
-### ✅ Phase 1: Foundation (Current)
-- [x] Repository structure
-- [x] Core documentation framework
-- [ ] Architecture guides
-- [ ] State management guides
-- [ ] Code quality standards
-
-### 🔄 Phase 2: In Progress
-- [ ] Comprehensive testing guides
-- [ ] UI/UX best practices
-- [ ] Networking patterns
-- [ ] Sample app features
-
-### 📋 Phase 3: Planned
-- [ ] Security implementations
-- [ ] CI/CD templates
-- [ ] Accessibility compliance
-- [ ] Performance benchmarking tools
-- [ ] Video tutorials
-
-[View detailed roadmap →](ROADMAP.md)
-
----
-
 ## 🤝 Contributing
 
 We welcome contributions from the community! Whether you're fixing a typo, adding a new best practice, or improving an example, your help makes this resource better for everyone.

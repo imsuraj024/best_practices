@@ -1,0 +1,54 @@
+# ============================================
+# ENTERPRISE/B2B - analysis_options_enterprise.yaml
+# ============================================
+# Maintainability, documentation, and team collaboration
+# Use this for: CRM, ERP, business tools, internal apps
+
+include: analysis_options.yaml
+
+analyzer:
+  errors:
+    # Documentation required
+    public_member_api_docs: warning
+    
+    # Code quality for large teams
+    todo: warning
+
+linter:
+  rules:
+    # === ENTERPRISE-SPECIFIC RULES ===
+    
+    # Documentation (Large teams)
+    - public_member_api_docs
+    - package_api_docs
+    - comment_references
+    - slash_for_doc_comments
+    - prefer_asserts_with_message
+    
+    # Code Organization (Maintainability)
+    - sort_constructors_first
+    - sort_unnamed_constructors_first
+    - sort_child_properties_last
+    - sort_pub_dependencies
+    - combinators_ordering
+    
+    # Type Safety (Long-term maintenance)
+    - always_declare_return_types
+    - type_annotate_public_apis
+    - avoid_dynamic_calls
+    
+    # Best Practices (Standard patterns)
+    - prefer_final_fields
+    - prefer_collection_literals
+    - prefer_function_declarations_over_variables
+    - prefer_generic_function_type_aliases
+    
+    # Error Handling (Debugging in production)
+    - avoid_catches_without_on_clauses
+    - only_throw_errors
+    - provide_deprecation_message
+    
+    # Imports (Large codebases)
+    - always_use_package_imports
+    - avoid_relative_lib_imports
+    - depend_on_referenced_packages

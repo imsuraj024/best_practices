@@ -1,0 +1,233 @@
+# Flutter Best Practices - Balanced Analysis Options (Base)
+# This is the base configuration suitable for most Flutter projects
+# Domain-specific configurations are available in /lints/ folder
+
+include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  exclude:
+    - "**/*.g.dart"
+    - "**/*.freezed.dart"
+    - "**/*.config.dart"
+    - "**/*.mocks.dart"
+    - "**/generated/**"
+    - "**/build/**"
+    - "**/.dart_tool/**"
+  
+  errors:
+    # Critical errors that prevent bugs
+    missing_required_param: error
+    missing_return: error
+    
+    # Moderate warnings
+    todo: info
+    deprecated_member_use: warning
+    deprecated_member_use_from_same_package: warning
+    
+    # Type safety
+    invalid_annotation_target: error
+    
+  language:
+    strict-casts: true
+    strict-inference: false  # Balanced: Allow some inference
+    strict-raw-types: true
+
+linter:
+  rules:
+    # === CRITICAL RULES (Bug Prevention) ===
+    
+    # Async & Futures
+    - cancel_subscriptions
+    - close_sinks
+    - unawaited_futures
+    - use_build_context_synchronously
+    - avoid_returning_null_for_future
+    - discarded_futures
+    
+    # Type Safety
+    - avoid_types_as_parameter_names
+    - unrelated_type_equality_checks
+    - valid_regexps
+    - collection_methods_unrelated_type
+    - test_types_in_equals
+    
+    # Control Flow
+    - no_duplicate_case_values
+    - literal_only_boolean_expressions
+    - throw_in_finally
+    - unnecessary_statements
+    - exhaustive_cases
+    
+    # Flutter Specific
+    - avoid_web_libraries_in_flutter
+    - use_key_in_widget_constructors
+    - sized_box_for_whitespace
+    - sized_box_shrink_expand
+    - avoid_unnecessary_containers
+    
+    # Security
+    - unsafe_html
+    - secure_pubspec_urls
+    
+    # === READABILITY & MAINTAINABILITY ===
+    
+    # Naming Conventions
+    - camel_case_extensions
+    - camel_case_types
+    - constant_identifier_names
+    - file_names
+    - library_names
+    - library_prefixes
+    - non_constant_identifier_names
+    - package_names
+    
+    # Code Structure
+    - annotate_overrides
+    - avoid_init_to_null
+    - avoid_null_checks_in_equality_operators
+    - avoid_return_types_on_setters
+    - avoid_shadowing_type_parameters
+    - curly_braces_in_flow_control_structures
+    - empty_catches
+    - empty_constructor_bodies
+    - library_private_types_in_public_api
+    - null_closures
+    - overridden_fields
+    - recursive_getters
+    - type_init_formals
+    
+    # Clarity
+    - prefer_collection_literals
+    - prefer_conditional_assignment
+    - prefer_contains
+    - prefer_equal_for_default_values
+    - prefer_final_fields
+    - prefer_for_elements_to_map_fromIterable
+    - prefer_function_declarations_over_variables
+    - prefer_generic_function_type_aliases
+    - prefer_if_null_operators
+    - prefer_initializing_formals
+    - prefer_inlined_adds
+    - prefer_is_empty
+    - prefer_is_not_empty
+    - prefer_is_not_operator
+    - prefer_iterable_whereType
+    - prefer_null_aware_operators
+    - prefer_spread_collections
+    - prefer_typing_uninitialized_variables
+    - prefer_void_to_null
+    
+    # === PERFORMANCE ===
+    
+    # Const Optimization
+    - prefer_const_constructors
+    - prefer_const_constructors_in_immutables
+    - prefer_const_declarations
+    - prefer_const_literals_to_create_immutables
+    - unnecessary_const
+    
+    # Efficiency
+    - avoid_function_literals_in_foreach_calls
+    - prefer_foreach
+    - prefer_if_elements_to_conditional_expressions
+    - use_string_buffers_in_strings
+    
+    # Flutter Performance
+    - use_colored_box
+    - use_decorated_box
+    
+    # === CODE CLEANUP ===
+    
+    # Remove Unnecessary Code
+    - unnecessary_await_in_return
+    - unnecessary_brace_in_string_interps
+    - unnecessary_constructor_name
+    - unnecessary_getters_setters
+    - unnecessary_lambdas
+    - unnecessary_late
+    - unnecessary_new
+    - unnecessary_null_aware_assignments
+    - unnecessary_null_in_if_null_operators
+    - unnecessary_nullable_for_final_variable_declarations
+    - unnecessary_overrides
+    - unnecessary_parenthesis
+    - unnecessary_raw_strings
+    - unnecessary_string_escapes
+    - unnecessary_string_interpolations
+    - unnecessary_this
+    - unnecessary_breaks
+    - unnecessary_library_directive
+    - unnecessary_to_list_in_spreads
+    
+    # === STYLE CONSISTENCY ===
+    
+    # Formatting
+    - always_put_control_body_on_new_line
+    - always_put_required_named_parameters_first
+    - prefer_single_quotes
+    - require_trailing_commas
+    - slash_for_doc_comments
+    - eol_at_end_of_file
+    
+    # Widget Organization
+    - sort_child_properties_last
+    - sort_constructors_first
+    - sort_unnamed_constructors_first
+    
+    # Imports
+    - always_use_package_imports
+    - avoid_relative_lib_imports
+    - depend_on_referenced_packages
+    - sort_pub_dependencies
+    - combinators_ordering
+    
+    # === BEST PRACTICES ===
+    
+    # Null Safety
+    - avoid_returning_null
+    - avoid_returning_null_for_void
+    - cast_nullable_to_non_nullable
+    - enable_null_safety
+    
+    # Error Handling
+    - only_throw_errors
+    - use_rethrow_when_possible
+    - avoid_catching_errors
+    
+    # Modern Dart Features
+    - use_enums
+    - use_super_parameters
+    - matching_super_parameters
+    - use_if_null_to_convert_nulls_to_bools
+    - use_is_even_rather_than_modulo
+    - use_named_constants
+    - use_raw_strings
+    - use_to_and_as_if_applicable
+    
+    # Flutter Best Practices
+    - use_full_hex_values_for_flutter_colors
+    - use_function_type_syntax_for_parameters
+    - avoid_print  # Use logging instead
+    - provide_deprecation_message
+    
+    # === BALANCED EXCLUSIONS ===
+    # These rules are NOT enabled for a balanced approach:
+    
+    # Too Verbose/Restrictive:
+    # - always_specify_types (let type inference work)
+    # - public_member_api_docs (enable for libraries only)
+    # - lines_longer_than_80_chars (modern screens support longer lines)
+    # - prefer_expression_function_bodies (too restrictive for complex widgets)
+    # - avoid_positional_boolean_parameters (common in Flutter APIs)
+    # - prefer_final_in_for_each (can be overly strict)
+    # - prefer_final_locals (can be overly strict)
+    # - always_declare_return_types (type inference is fine in many cases)
+    
+    # Personal Preference:
+    # - prefer_double_quotes (we chose single quotes)
+    # - avoid_final_parameters (final parameters can prevent bugs)
+    # - cascade_invocations (not always clearer)
+    
+    # Context-Dependent:
+    # - avoid_classes_with_only_static_members (utils classes are fine)
+    # - one_member_abstracts (sometimes needed for architecture)

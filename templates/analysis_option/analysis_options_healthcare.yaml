@@ -1,0 +1,69 @@
+# ============================================
+# HEALTHCARE - analysis_options_healthcare.yaml
+# ============================================
+# HIPAA compliance, data security, and reliability
+# Use this for: Medical apps, health trackers, telemedicine
+
+include: analysis_options.yaml
+
+analyzer:
+  errors:
+    # HIPAA Compliance
+    avoid_print: error  # No PHI in logs
+    avoid_dynamic_calls: error
+    
+    # Data integrity
+    missing_required_param: error
+    missing_return: error
+    
+    # Documentation for compliance
+    public_member_api_docs: error
+    
+    # No TODOs in production healthcare
+    todo: error
+    
+  language:
+    strict-casts: true
+    strict-inference: true  # Strict for patient data
+    strict-raw-types: true
+
+linter:
+  rules:
+    # === HEALTHCARE-SPECIFIC RULES ===
+    
+    # Security & Privacy (HIPAA)
+    - avoid_print
+    - no_runtimeType_toString
+    - secure_pubspec_urls
+    - unsafe_html
+    
+    # Data Integrity
+    - always_specify_types
+    - type_annotate_public_apis
+    - always_declare_return_types
+    - avoid_dynamic_calls
+    - parameter_assignments
+    
+    # Immutability (Patient data)
+    - prefer_final_fields
+    - prefer_final_in_for_each
+    - prefer_final_locals
+    - avoid_equals_and_hash_code_on_mutable_classes
+    
+    # Error Handling (Critical for medical apps)
+    - avoid_catches_without_on_clauses
+    - only_throw_errors
+    - use_rethrow_when_possible
+    
+    # Documentation (Regulatory compliance)
+    - public_member_api_docs
+    - package_api_docs
+    - comment_references
+    - prefer_asserts_with_message
+    
+    # Async Safety (Background health monitoring)
+    - cancel_subscriptions
+    - close_sinks
+    - unawaited_futures
+    - discarded_futures
+    - use_build_context_synchronously

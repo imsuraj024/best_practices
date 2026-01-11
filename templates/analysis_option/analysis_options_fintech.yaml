@@ -1,0 +1,64 @@
+# ============================================
+# FINTECH - analysis_options_fintech.yaml
+# ============================================
+# Security, compliance, and data accuracy are paramount
+# Use this for: Banking apps, payment systems, trading platforms
+
+include: analysis_options.yaml  # Include base rules
+
+analyzer:
+  errors:
+    # CRITICAL: Security and data integrity
+    avoid_print: error  # No sensitive data in logs
+    avoid_dynamic_calls: error  # Type safety for financial calculations
+    invalid_annotation_target: error
+    
+    # Enforce documentation for public APIs
+    public_member_api_docs: error
+    
+    # No TODOs in production fintech code
+    todo: error
+    
+  language:
+    strict-casts: true
+    strict-inference: true  # STRICT: No inference ambiguity for money
+    strict-raw-types: true
+
+linter:
+  rules:
+    # === FINTECH-SPECIFIC CRITICAL RULES ===
+    
+    # Data Precision & Type Safety
+    - always_specify_types  # MUST: Explicit types for financial data
+    - type_annotate_public_apis
+    - always_declare_return_types
+    - avoid_dynamic_calls
+    - avoid_annotating_with_dynamic
+    
+    # Security
+    - avoid_print  # Use secure logging
+    - no_runtimeType_toString  # Prevent information leakage
+    - parameter_assignments  # Prevent accidental mutation
+    
+    # Immutability (Critical for financial data)
+    - prefer_final_fields
+    - prefer_final_in_for_each
+    - prefer_final_locals
+    - avoid_equals_and_hash_code_on_mutable_classes
+    
+    # Documentation (Compliance & Audit)
+    - public_member_api_docs
+    - package_api_docs
+    - comment_references
+    
+    # Testing (High coverage required)
+    - use_test_throws_matchers
+    
+    # Error Handling (Never fail silently)
+    - avoid_catches_without_on_clauses
+    - only_throw_errors
+    
+    # Code Quality (Audit trails)
+    - avoid_returning_this  # Clear method chains
+    - prefer_asserts_with_message
+    - avoid_void_async  # Clear async boundaries

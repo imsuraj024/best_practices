@@ -1,0 +1,44 @@
+# ============================================
+# GAMING - analysis_options_gaming.yaml
+# ============================================
+# Performance, frame rate, and user experience
+# Use this for: Games, interactive entertainment, simulations
+
+include: analysis_options.yaml
+
+analyzer:
+  errors:
+    # Performance is everything
+    avoid_unnecessary_containers: error
+    prefer_const_constructors: error
+
+linter:
+  rules:
+    # === GAMING-SPECIFIC RULES ===
+    
+    # Performance (60 FPS target)
+    - prefer_const_constructors
+    - prefer_const_constructors_in_immutables
+    - prefer_const_declarations
+    - prefer_const_literals_to_create_immutables
+    - avoid_unnecessary_containers
+    - use_colored_box
+    - use_decorated_box
+    - avoid_function_literals_in_foreach_calls
+    
+    # Memory Management (Prevent leaks)
+    - cancel_subscriptions
+    - close_sinks
+    - avoid_returning_null_for_future
+    
+    # Async (Game loops, animations)
+    - unawaited_futures
+    - discarded_futures
+    
+    # Code Organization (Rapid iteration)
+    - prefer_single_quotes
+    - require_trailing_commas
+    
+    # Less Strict (Fast prototyping)
+    # Disabled: prefer_final_fields (game state changes frequently)
+    # Disabled: public_member_api_docs (internal game code)
