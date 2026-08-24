@@ -48,33 +48,13 @@ Each recommendation should provide enough context to make an engineering decisio
 
 ## Engineering principles
 
-### 1. Opinionated, not absolute
-
-Prefer a clear recommendation, but explain when another option is better.
-
-### 2. Show, don't just tell
-
-Prefer practical examples and implementation patterns over abstract explanations.
-
-### 3. Explain the why
-
-A rule is useful only when engineers understand the problem it solves.
-
-### 4. Make anti-patterns visible
-
-Show common mistakes, their consequences, and the better alternative.
-
-### 5. Production first
-
-Consider security, performance, testing, observability, and release impact.
-
-### 6. Measure before optimizing
-
-Performance claims should be supported by reproducible measurements.
-
-### 7. Keep version-sensitive guidance explicit
-
-Flutter and Dart evolve. Recommendations that depend on a framework or language version should state the target version.
+1. **Opinionated, not absolute** — recommend a default and explain exceptions.
+2. **Show, don't just tell** — prefer practical implementation patterns.
+3. **Explain the why** — teach the problem behind the rule.
+4. **Make anti-patterns visible** — show failure modes and better alternatives.
+5. **Production first** — include security, performance, testing, and release impact.
+6. **Measure before optimizing** — do not invent performance claims.
+7. **Keep version-sensitive guidance explicit** — state the Flutter/Dart target when relevant.
 
 ---
 
@@ -104,50 +84,43 @@ The final choice should consider application size, team familiarity, existing ar
 
 ### Architecture
 
-Build applications around clear feature boundaries and introduce additional layers when complexity justifies them.
+Build around clear feature boundaries and introduce additional layers when complexity justifies them.
 
-**Guide:** [Architecture](docs/architecture/README.md)
+**Guides:**
 
-Covers:
+- [Architecture overview](docs/architecture/README.md)
+- [Feature-first architecture](docs/architecture/feature-first.md)
+- [Clean Architecture](docs/architecture/clean-architecture.md)
+- [Dependency injection](docs/architecture/dependency-injection.md)
+- [Architecture Decision Record](docs/architecture/architecture-decision-record.md)
 
-- Feature-first organization
-- Clean Architecture
-- Layer boundaries
-- Dependency injection
-- Scalable folder structures
-- Architecture decision records
+**Examples:** [Architecture examples](examples/architecture/README.md)
 
 ### State management
 
 Keep state as close as possible to the scope that owns it. Avoid making every piece of state global.
 
-**Guide:** [State Management](docs/state-management/README.md)
+**Guides:**
 
-Covers:
+- [State management overview](docs/state-management/README.md)
+- [Choosing state management](docs/state-management/choosing-state-management.md)
+- [Riverpod](docs/state-management/riverpod.md)
+- [BLoC](docs/state-management/bloc.md)
 
-- Local vs application state
-- Riverpod
-- BLoC
-- State transitions
-- Side effects
-- State-management anti-patterns
+**Examples:** [State management examples](examples/state-management/README.md)
 
 ### Networking & data
 
 Keep transport concerns outside presentation code and make failure behavior explicit.
 
-**Guide:** [Networking & Data](docs/networking/README.md)
+**Guides:**
 
-Covers:
+- [Networking overview](docs/networking/README.md)
+- [API architecture](docs/networking/api-architecture.md)
+- [Error handling](docs/networking/error-handling.md)
+- [Caching and pagination](docs/networking/caching-and-pagination.md)
 
-- Repository patterns
-- Data sources
-- Error mapping
-- Timeouts
-- Retries
-- Caching
-- Pagination
-- Offline-first architecture
+**Examples:** [Networking examples](examples/networking/README.md)
 
 ### Performance
 
@@ -155,31 +128,21 @@ Optimize based on measured user impact rather than assumptions.
 
 **Guide:** [Performance](docs/performance/README.md)
 
-Covers:
-
-- Widget rebuilds
-- `const`
-- Build method optimization
-- Lazy rendering
-- Pagination
-- Image optimization
-- Memory management
-- Profiling
+Covers widget rebuilds, `const`, lazy rendering, pagination, images, memory, and profiling.
 
 ### Testing
 
 Use the cheapest test that proves the behavior correctly.
 
-**Guide:** [Testing](docs/testing/README.md)
+**Guides:**
 
-Covers:
+- [Testing overview](docs/testing/README.md)
+- [Testing strategy](docs/testing/testing-strategy.md)
+- [Unit testing](docs/testing/unit-testing.md)
+- [Widget testing](docs/testing/widget-testing.md)
+- [Integration testing](docs/testing/integration-testing.md)
 
-- Unit tests
-- Widget tests
-- Integration tests
-- Golden tests
-- Test doubles
-- Critical-flow coverage
+**Examples:** [Testing examples](examples/testing/README.md)
 
 ### Security
 
@@ -187,25 +150,13 @@ Treat security as part of application design rather than a final release checkli
 
 **Guide:** [Security](docs/security/README.md)
 
-Covers:
-
-- Secrets management
-- Secure local storage
-- Input validation
-- Authentication
-- Authorization
-- Safe logging
-- Certificate pinning evaluation
-
 ### Code quality
 
-The repository already contains reusable analysis configurations under `templates/analysis_option/`, including a base configuration and domain-specific configurations.
-
-Use them as starting points and adapt rules to the application rather than blindly enabling every lint.
+The repository contains reusable analysis configurations under `templates/analysis_option/`, including a base configuration and domain-specific configurations. Adapt rules to the application rather than blindly enabling every lint.
 
 ### CI/CD & release
 
-The playbook will provide guidance for automated analysis, testing, environment configuration, versioning, and safe releases.
+Guidance for automated analysis, testing, environment configuration, versioning, and safe releases will be added in a later phase.
 
 ---
 
@@ -250,6 +201,12 @@ best_practices/
 │   ├── testing/
 │   └── security/
 │
+├── examples/
+│   ├── architecture/
+│   ├── state-management/
+│   ├── networking/
+│   └── testing/
+│
 ├── checklists/
 │   └── production-readiness.md
 │
@@ -257,29 +214,25 @@ best_practices/
     └── analysis_option/
 ```
 
-The repository is intentionally being built incrementally. Documentation should be added under focused topic directories rather than turning the project into one oversized sample application.
-
 ---
 
 ## Guide standard
 
-Every substantial practice should answer the following questions:
+Every substantial practice should answer:
 
-1. **Overview** — What is this?
-2. **Problem** — What problem does it solve?
-3. **Recommendation** — What should we do?
-4. **Implementation** — How do we apply it?
-5. **Why** — Why is this approach preferred?
-6. **Trade-offs** — What do we give up?
-7. **Common mistakes** — What should we avoid?
-8. **Testing** — How should it be verified?
-9. **Performance & security** — What are the relevant implications?
-10. **When not to use it** — When is another approach better?
-11. **Further reading** — Where can engineers learn more?
+1. **Overview**
+2. **Problem**
+3. **Recommendation**
+4. **Implementation**
+5. **Why**
+6. **Trade-offs**
+7. **Common mistakes**
+8. **Testing**
+9. **Performance/security implications** where relevant
+10. **When not to use it**
+11. **Further reading**
 
 ### Anti-pattern format
-
-Where useful, guides should follow this flow:
 
 ```text
 ❌ Anti-pattern
@@ -301,16 +254,7 @@ Testing strategy
 
 Read [CONTRIBUTING.md](CONTRIBUTING.md) before submitting a change.
 
-Useful contributions include:
-
-- New engineering guides
-- Runnable examples
-- Anti-pattern comparisons
-- Better decision frameworks
-- Production checklists
-- Evidence-backed improvements
-- Updated Flutter/Dart guidance
-- Documentation and link fixes
+Useful contributions include new engineering guides, runnable examples, anti-pattern comparisons, decision frameworks, production checklists, evidence-backed improvements, and updated Flutter/Dart guidance.
 
 For security-related concerns, see [SECURITY.md](SECURITY.md).
 
@@ -318,31 +262,26 @@ For security-related concerns, see [SECURITY.md](SECURITY.md).
 
 ## Roadmap
 
-### Foundation
+### Completed
 
 - [x] Engineering playbook README
 - [x] Contribution guidelines
 - [x] Security policy
-- [x] Architecture foundation
-- [x] State management foundation
-- [x] Networking foundation
-- [x] Performance foundation
-- [x] Testing foundation
-- [x] Security foundation
+- [x] Architecture foundation and guides
+- [x] State management foundation and guides
+- [x] Networking foundation and guides
+- [x] Testing foundation and guides
 - [x] Production readiness checklist
 
 ### Next
 
-- [ ] Detailed architecture guides
-- [ ] Riverpod and BLoC examples
-- [ ] Networking examples
-- [ ] Performance examples
-- [ ] Testing examples
+- [ ] More runnable Flutter examples
+- [ ] Performance example projects
 - [ ] UI and accessibility guides
 - [ ] Code-quality guides
 - [ ] CI/CD workflows
-- [ ] Runnable anti-pattern examples
-- [ ] Architecture decision record templates
+- [ ] Runnable anti-pattern library
+- [ ] ADR examples
 
 ---
 
