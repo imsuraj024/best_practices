@@ -5,7 +5,7 @@
 [![Flutter](https://img.shields.io/badge/Flutter-3.35%2B-02569B?logo=flutter)](https://flutter.dev)
 [![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen.svg)](CONTRIBUTING.md)
 
-The **Flutter Engineering Playbook** helps developers make better engineering decisions across architecture, state management, networking, performance, testing, security, and release management.
+The **Flutter Engineering Playbook** helps developers make better engineering decisions across architecture, state management, networking, performance, testing, security, UI/accessibility, code quality, and release management.
 
 The focus is simple:
 
@@ -150,13 +150,25 @@ Treat security as part of application design rather than a final release checkli
 
 **Guide:** [Security](docs/security/README.md)
 
+### UI, UX & accessibility
+
+Build interfaces that remain usable across screen sizes, input methods, text scales, and assistive technologies.
+
+**Guide:** [UI, UX & accessibility](docs/ui-ux/README.md)
+
 ### Code quality
 
-The repository contains reusable analysis configurations under `templates/analysis_option/`, including a base configuration and domain-specific configurations. Adapt rules to the application rather than blindly enabling every lint.
+Keep code easy to understand, change, test, and review.
+
+**Guide:** [Code quality](docs/code-quality/README.md)
 
 ### CI/CD & release
 
-Guidance for automated analysis, testing, environment configuration, versioning, and safe releases will be added in a later phase.
+Automate the checks that protect the main branch and make releases repeatable.
+
+**Guide:** [CI/CD & release](docs/deployment/README.md)
+
+**CI workflow:** `.github/workflows/flutter.yml`
 
 ---
 
@@ -193,13 +205,20 @@ best_practices/
 ├── CONTRIBUTING.md
 ├── SECURITY.md
 │
+├── .github/
+│   └── workflows/
+│       └── flutter.yml
+│
 ├── docs/
 │   ├── architecture/
 │   ├── state-management/
 │   ├── networking/
 │   ├── performance/
 │   ├── testing/
-│   └── security/
+│   ├── security/
+│   ├── ui-ux/
+│   ├── code-quality/
+│   └── deployment/
 │
 ├── examples/
 │   ├── architecture/
@@ -270,18 +289,22 @@ For security-related concerns, see [SECURITY.md](SECURITY.md).
 - [x] Architecture foundation and guides
 - [x] State management foundation and guides
 - [x] Networking foundation and guides
+- [x] Performance foundation
 - [x] Testing foundation and guides
+- [x] Security foundation
+- [x] UI/UX and accessibility foundation
+- [x] Code-quality foundation
+- [x] CI/CD and release foundation
 - [x] Production readiness checklist
+- [x] Example foundations for architecture, state, networking, and testing
 
 ### Next
 
-- [ ] More runnable Flutter examples
-- [ ] Performance example projects
-- [ ] UI and accessibility guides
-- [ ] Code-quality guides
-- [ ] CI/CD workflows
-- [ ] Runnable anti-pattern library
-- [ ] ADR examples
+- [ ] Expand runnable Flutter example projects with `pubspec.yaml` and tests
+- [ ] Add performance example projects
+- [ ] Add runnable anti-pattern library
+- [ ] Add more ADR examples
+- [ ] Add automated documentation/link validation
 
 ---
 
