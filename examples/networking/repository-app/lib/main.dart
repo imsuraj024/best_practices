@@ -13,6 +13,8 @@ abstract interface class UserDataSource {
 }
 
 class FakeUserDataSource implements UserDataSource {
+  const FakeUserDataSource();
+
   @override
   User fetchUser() => const User('Ada Lovelace');
 }
