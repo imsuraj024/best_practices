@@ -1,10 +1,13 @@
 # State Management Examples
 
-Examples should compare state scope and behavior rather than promote one package for every application.
+Examples compare state scope and behavior rather than promoting one package for every application.
 
-## Planned examples
+## Runnable
 
-- `local-state/` — widget-owned state
+- [`local-state/`](local-state/) — widget-owned state using `StatefulWidget`
+
+## Planned next examples
+
 - `riverpod/` — shared asynchronous feature state
 - `bloc/` — explicit event/state workflow
 - `anti-patterns/` — global state and side-effect mistakes
