@@ -25,6 +25,8 @@ abstract interface class ProfileRepository {
 }
 
 class InMemoryProfileRepository implements ProfileRepository {
+  const InMemoryProfileRepository();
+
   @override
   Profile load() => const Profile('Flutter Engineer');
 }
