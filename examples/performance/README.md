@@ -2,10 +2,13 @@
 
 Performance examples should demonstrate measurable engineering decisions rather than arbitrary micro-optimizations.
 
-## Planned examples
+## Runnable
+
+- [`performance-app/`](performance-app/) — lazy list rendering with a 1,000-item collection
+
+## Planned next examples
 
 - Rebuild isolation
-- Lazy list rendering and pagination
 - Image sizing and caching
 - Deferring non-critical startup work
 - Moving CPU-heavy work off the UI path
