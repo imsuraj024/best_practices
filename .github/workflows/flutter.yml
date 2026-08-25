@@ -15,9 +15,17 @@ jobs:
           python-version: '3.x'
       - run: python scripts/check_markdown_links.py
 
-  flutter:
+  flutter-examples:
     runs-on: ubuntu-latest
-    if: ${{ hashFiles('pubspec.yaml') != '' }}
+    strategy:
+      fail-fast: false
+      matrix:
+        example:
+          - examples/architecture/clean-architecture-app
+          - examples/state-management/local-state
+          - examples/networking/repository-app
+          - examples/testing/testing-app
+          - examples/performance/performance-app
     steps:
       - uses: actions/checkout@v4
       - uses: subosito/flutter-action@v2
@@ -26,6 +34,10 @@ jobs:
           channel: stable
           cache: true
       - run: flutter pub get
-      - run: dart format --output=none --set-exit-if-changed .
+        working-directory: ${{ matrix.example }}
+      - run: dart format --output=none --set-exit-if-changed lib test
+        working-directory: ${{ matrix.example }}
       - run: flutter analyze
+        working-directory: ${{ matrix.example }}
       - run: flutter test
+        working-directory: ${{ matrix.example }}
