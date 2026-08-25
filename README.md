@@ -148,13 +148,29 @@ Use the cheapest test that proves the behavior correctly.
 
 Treat security as part of application design rather than a final release checklist.
 
-**Guide:** [Security](docs/security/README.md)
+**Guides:**
+
+- [Security overview](docs/security/README.md)
+- [Secure storage](docs/security/secure-storage.md)
+- [Authentication and authorization](docs/security/authentication.md)
+- [Input validation](docs/security/input-validation.md)
+- [Network security](docs/security/network-security.md)
+- [Threat modeling](docs/security/threat-model.md)
+
+**Checklist:** [Security review](checklists/security-review.md)
 
 ### UI, UX & accessibility
 
 Build interfaces that remain usable across screen sizes, input methods, text scales, and assistive technologies.
 
-**Guide:** [UI, UX & accessibility](docs/ui-ux/README.md)
+**Guides:**
+
+- [UI/UX overview](docs/ui-ux/README.md)
+- [Design system](docs/ui-ux/design-system.md)
+- [Accessibility](docs/ui-ux/accessibility.md)
+- [Responsive layouts](docs/ui-ux/responsive-layouts.md)
+
+**Checklist:** [UI and accessibility](checklists/ui-accessibility.md)
 
 ### Code quality
 
@@ -227,7 +243,9 @@ best_practices/
 │   └── testing/
 │
 ├── checklists/
-│   └── production-readiness.md
+│   ├── production-readiness.md
+│   ├── ui-accessibility.md
+│   └── security-review.md
 │
 └── templates/
     └── analysis_option/
@@ -296,6 +314,8 @@ For security-related concerns, see [SECURITY.md](SECURITY.md).
 - [x] Code-quality foundation
 - [x] CI/CD and release foundation
 - [x] Production readiness checklist
+- [x] Security review checklist
+- [x] UI/accessibility checklist
 - [x] Example foundations for architecture, state, networking, and testing
 
 ### Next
