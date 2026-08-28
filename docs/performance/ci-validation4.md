@@ -1,0 +1,1 @@
+CI validates formatting, static analysis, and tests for runnable Flutter examples.
