@@ -130,6 +130,8 @@ Optimize based on measured user impact rather than assumptions.
 
 Covers widget rebuilds, `const`, lazy rendering, pagination, images, memory, and profiling.
 
+**Examples:** [Performance examples](examples/performance/README.md)
+
 ### Testing
 
 Use the cheapest test that proves the behavior correctly.
@@ -220,6 +222,7 @@ best_practices/
 ├── README.md
 ├── CONTRIBUTING.md
 ├── SECURITY.md
+├── LICENSE
 │
 ├── .github/
 │   └── workflows/
@@ -240,12 +243,14 @@ best_practices/
 │   ├── architecture/
 │   ├── state-management/
 │   ├── networking/
-│   └── testing/
+│   ├── testing/
+│   └── performance/
 │
 ├── checklists/
 │   ├── production-readiness.md
 │   ├── ui-accessibility.md
-│   └── security-review.md
+│   ├── security-review.md
+│   └── performance-review.md
 │
 └── templates/
     └── analysis_option/
@@ -272,13 +277,13 @@ Every substantial practice should answer:
 ### Anti-pattern format
 
 ```text
-❌ Anti-pattern
+Anti-pattern
       ↓
 Why it causes problems
       ↓
-⚠️ Consequences
+Consequences
       ↓
-✅ Recommended approach
+Recommended approach
       ↓
 Trade-offs
       ↓
@@ -307,30 +312,31 @@ For security-related concerns, see [SECURITY.md](SECURITY.md).
 - [x] Architecture foundation and guides
 - [x] State management foundation and guides
 - [x] Networking foundation and guides
-- [x] Performance foundation
+- [x] Performance foundation and runnable example
 - [x] Testing foundation and guides
 - [x] Security foundation
 - [x] UI/UX and accessibility foundation
 - [x] Code-quality foundation
 - [x] CI/CD and release foundation
 - [x] Production readiness checklist
+- [x] Performance review checklist
 - [x] Security review checklist
 - [x] UI/accessibility checklist
-- [x] Example foundations for architecture, state, networking, and testing
+- [x] Runnable Flutter examples for architecture, state, networking, testing, and performance
+- [x] Automated documentation/link validation
 
 ### Next
 
-- [ ] Expand runnable Flutter example projects with `pubspec.yaml` and tests
-- [ ] Add performance example projects
 - [ ] Add runnable anti-pattern library
 - [ ] Add more ADR examples
-- [ ] Add automated documentation/link validation
+- [ ] Expand performance examples with profiling scenarios
+- [ ] Expand runnable examples with failure and edge-case scenarios
 
 ---
 
 ## License
 
-License information will be added once the repository's licensing decision is finalized.
+This project is licensed under the **MIT License**. See [LICENSE](LICENSE) for the full text.
 
 ---
 
