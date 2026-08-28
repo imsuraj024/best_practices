@@ -1,1 +1,0 @@
-Runnable Flutter examples are checked with format, analyze, and test.
