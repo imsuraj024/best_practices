@@ -1,1 +1,0 @@
-CI validation for runnable Flutter examples uses formatting, static analysis, and tests. Runtime profiling is performed with Flutter DevTools on representative devices rather than as a CI benchmark.

@@ -11,10 +11,8 @@ class PerformancePage extends StatelessWidget {
       appBar: AppBar(title: const Text('Performance')),
       body: ListView.builder(
         itemCount: 1000,
-        itemBuilder: (context, index) => ListTile(
-          key: ValueKey(index),
-          title: Text('Item $index'),
-        ),
+        itemBuilder: (context, index) =>
+            ListTile(key: ValueKey(index), title: Text('Item $index')),
       ),
     );
   }
